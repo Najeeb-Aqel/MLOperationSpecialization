@@ -1,0 +1,12 @@
+- ML is more than just running your experiment within a Jupyter notebook. 
+- one misconsiption about ML is that after running the experiment within your notebook, you only need some software engineering skills 
+for the Deployment but that is not true. 
+- One of the biggest issue facing in production is that the distribution of the data that Model faces in real world can be different 
+than what it was trained on, the world changes and thus your ML Model as well. Deployment as well. 
+
+
+-Curriculum-
+- Course1: Intro Course. Overview of the whole ML Life Cyle. 
+- Course2: Data and how it evolves over time. 
+- Course3: ML modeling pipeline in Production. 
+- Course4: Deployment. 

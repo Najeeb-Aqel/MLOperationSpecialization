@@ -1,3 +1,8 @@
+DeepLearning.AI community on Discourse: https://discourse.deeplearning.ai/invites/DPyjzgp8vJ
+
+----Intro------------------------------------------------------------------------------------------------------------------------------
+
+
 - ML is more than just running your experiment within a Jupyter notebook. 
 - one misconsiption about ML is that after running the experiment within your notebook, you only need some software engineering skills 
 for the Deployment but that is not true. 
@@ -10,3 +15,16 @@ than what it was trained on, the world changes and thus your ML Model as well. D
 - Course2: Data and how it evolves over time. 
 - Course3: ML modeling pipeline in Production. 
 - Course4: Deployment. 
+
+
+
+----The Machine Learning Life Cycle-----------------------------------------------------------------------------------------------------
+
+Welcome Section: 
+
+- Edge Device: a device that lives in the factory manufacturing hardware. 
+- Prediction servers can be on cloud or on the edge as well. 
+- Concept Drift/ Data Drift: the problem of dealing with real world data that is differen than what you have trained on so far. 
+- Success of training your model within a dev environment can take an extra work of up to 6 months to practical Deployment. (It's still a great Success but as ML Engineers we have to watch out for)
+    - Some ML Team would not consider such problems as ML problems, Andrew NG doesn't agree here, he thinks that ML Team responsibility is to make things work. 
+- MLCode represents 5-10% at max of the MLProject code required to get your model into Production. (POC to Production gap)

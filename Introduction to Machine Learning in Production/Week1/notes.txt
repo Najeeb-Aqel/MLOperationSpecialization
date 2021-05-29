@@ -28,3 +28,11 @@ Welcome Section:
 - Success of training your model within a dev environment can take an extra work of up to 6 months to practical Deployment. (It's still a great Success but as ML Engineers we have to watch out for)
     - Some ML Team would not consider such problems as ML problems, Andrew NG doesn't agree here, he thinks that ML Team responsibility is to make things work. 
 - MLCode represents 5-10% at max of the MLProject code required to get your model into Production. (POC to Production gap)
+
+
+Steps of an ML Project
+
+- Scoping: Defining project. 
+- Data: Defining data, labeling and orgaizing. 
+- Modeling: Select/Train model, error analysis. (Highly iterative)
+- Deployment: When you deploy for the first time you are only half way there, you still required to maintain and monitro your system for any distribution changes.

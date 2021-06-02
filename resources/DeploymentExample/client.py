@@ -1,17 +1,7 @@
-import glob
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
 import os
 import cv2
-import cvlib as cv
-from cvlib.object_detection import draw_bbox
 import io
-import uvicorn
 import numpy as np
-import nest_asyncio
-from enum import Enum
-from fastapi import FastAPI, UploadFile, File, HTTPException
-from fastapi.responses import StreamingResponse
 import requests
 
 base_url = 'http://localhost:8000'

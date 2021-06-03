@@ -1,0 +1,11 @@
+----Modeling overview----------------------------------------------------------------------------------------------------------------------
+
+Mian problems:
+    - Handling new datasets. 
+    - good enough on test dataset but not goog enough in the real world. 
+
+
+
+Key challenges:
+    - AI System = Code + Data( Much more customized to your problem ) + hyperparamters(very limited). 
+    - 

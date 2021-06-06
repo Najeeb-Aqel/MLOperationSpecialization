@@ -38,6 +38,31 @@ Performance auditing:
     - Prevalence of rude mis-transcriptions.
 
 
+-----------Data Iteration ------------------------------------------------------------------------------------------------------------------
+
+Data-centric AI development: 
+    -
+
+A useful picture of data augmentation:
+    - space of possible inputs: Increasing performace of one space in the unstructured data-field will probably increase performace on other spaces as well, but rarely causing a degaradation in any spaces. 
+    
+
+Data augmentation:
+    - Goal: Create realistic examples that the algorithm does poorly on, but humans do well on. 
+    - Checklist: 
+        - Does data sounds realistic. 
+        - can humans perform well. 
+        - is the algorithm doing poorly on it. 
+    - GANs: can be overkill. 
+    - Model Iteration: 
+
+
+Can adding data hurt?
+    - Rarely, when the augmentation reflect another target of data within your dataset. 
+    - Even that training dataset disctribution is different thatn testing and validation datases, that shouldn't hurt performace.  
+
+
+
 
 
 

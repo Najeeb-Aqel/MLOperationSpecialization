@@ -8,4 +8,39 @@ Mian problems:
 
 Key challenges:
     - AI System = Code + Data( Much more customized to your problem ) + hyperparamters(very limited). 
-    - 
+    - Error analysis. 
+
+
+-----------Error analysis and performance auditing-----------------------------------------------------------------------------------------
+
+Error analysis example
+- Most of the time you are guaranteed that your ML solution won't work the first time.
+- The heart of ML is to do Error analysis:
+    - This step is more data/problem specific, (you can manually go through the data and Identify patters within your data).
+    - Emerging tool to automate this process: https://landing.ai/platform/.
+    - Examine/Tage examples --- propose tags. (Iterative process).
+    
+
+Skewed datastes:
+- Definition: Positive/Negative data are far from being 50/50 ratio. 
+- Using Precision/Recall/FScore is better than just plain accuracy as some classes might be very rare and thus have an average high accuracy. 
+
+
+Performance auditing:
+- Audit Performance (accuracy, fairness/bias, ): 
+    - Brainstorm the ways the system might go wrong. 
+    - Esablish metrics, to access performance against these issues on appropriate.
+        - Automatic Evaluation: TFMA: automated metrics. 
+    - Get business/product ownner buy-in. 
+- Speech recognition example. 
+    - Accuracy on different genders and ethnicities.
+    - Accuracy on different devices. 
+    - Prevalence of rude mis-transcriptions.
+
+
+
+
+
+
+
+

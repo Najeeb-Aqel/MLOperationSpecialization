@@ -1,0 +1,24 @@
+----Define Data and establish baseline-----------------------------------------------------------------------------------------------------------
+
+Why is data definition hard?
+    - 
+
+
+Major types of data problems:
+    - Major Types of Machine Learning Projects: 
+        - unstructured.
+        - Structured.
+        - Small Data. < 10000 samples 
+        - Big Data. >= 10000 samples
+
+Small VS Big Data: 
+    Small Data: clean lavels 
+
+Data one size fit all, doens't work here: 
+
+
+Improving Labels Consistency: 
+    - Have Multipel labelers label same example. 
+        - Have Labelers discuss definition of y to reach agreement. 
+    - If labelers believe that x doesn't contain enough information, consider changing x. 
+    

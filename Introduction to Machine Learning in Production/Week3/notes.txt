@@ -20,5 +20,16 @@ Data one size fit all, doens't work here:
 Improving Labels Consistency: 
     - Have Multipel labelers label same example. 
         - Have Labelers discuss definition of y to reach agreement. 
-    - If labelers believe that x doesn't contain enough information, consider changing x. 
+    - If labelers believe that x doesn't contain enough information, consider changing x.
+
+Human level performance (HLP):
+    - Very Helpful for establishing baseline of what could be possible.(Helps stablish a more reasonable target)
+    - Ground Truth Label: At then end you are comparing against Ground Truth established by 
+    - "Prove" the ML system is superior to humans doing the job and thus bussiness should adopt it, (This logic rarely works i practice)
+    
+
+Raising HLP:2
+    - Ground Truth: is basically another human label. 
+        - try to figure out why HLP from the other labeler is different from the Ground Truth.
+
     

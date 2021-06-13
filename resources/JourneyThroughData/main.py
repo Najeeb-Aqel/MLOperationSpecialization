@@ -28,20 +28,21 @@ if __name__ == "__main__":
 
     cats_and_dogs_zip = './content/kagglecatsanddogs_3367a.zip'
     caltech_birds_tar = './content/CUB_200_2011.tar'
-
     base_dir = './content/raw_data'
 
+    # Extract raw images
     if not os.path.isdir("./content/raw_data"):
         with zipfile.ZipFile(cats_and_dogs_zip, 'r') as my_zip:
             my_zip.extractall(base_dir)
-
         with tarfile.TarFile(caltech_birds_tar, 'r') as my_tar:
             my_tar.extractall(base_dir)
 
+    # define base directories
     base_dogs_dir = os.path.join(base_dir, 'PetImages/Dog')
     base_cats_dir = os.path.join(base_dir, 'PetImages/Cat')
     base_birds_dir = os.path.join(base_dir, 'PetImages/Bird')
 
+    # preprocess bird images
     if not os.path.isdir(base_birds_dir):
         os.mkdir(base_birds_dir)
         raw_birds_dir = './content/raw_data/CUB_200_2011/images'
@@ -50,6 +51,7 @@ if __name__ == "__main__":
             for image in os.listdir(subdir_path):
                 shutil.move(os.path.join(subdir_path, image), os.path.join(base_birds_dir))
 
+    # count images in each class
     print(f"There are {len(os.listdir(base_birds_dir))} images of birds")
     print(f"There are {len(os.listdir(base_dogs_dir))} images of dogs")
     print(f"There are {len(os.listdir(base_cats_dir))} images of cats")

@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Cats and dogs
-wget https://storage.googleapis.com/mlep-public/course_1/week2/kagglecatsanddogs_3367a.zip
+wget -q -P ./content/ https://storage.googleapis.com/mlep-public/course_1/week2/kagglecatsanddogs_3367a.zip
 
 # Caltech birds
-wget https://storage.googleapis.com/mlep-public/course_1/week2/CUB_200_2011.tar
+wget -q -P ./content/ https://storage.googleapis.com/mlep-public/course_1/week2/CUB_200_2011.tar
 
 # Download pretrained models and training histories
 wget -q -P ./content/model-balanced2/ https://storage.googleapis.com/mlep-public/course_1/week2/model-balanced/saved_model.pb

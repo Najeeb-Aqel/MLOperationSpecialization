@@ -10,39 +10,29 @@ import pandas as pd
 import seaborn as sns
 import tensorflow as tf
 import matplotlib.pyplot as plt
-import wget
+import subprocess
 
 # To ignore some warnings about Image metadata that Pillow prints out
 import warnings
 warnings.filterwarnings("ignore")
 
-def downloadArtifacts():
-    # # Download datasets
-    #
-    # # Cats and dogs
-    # !wget https://storage.googleapis.com/mlep-public/course_1/week2/kagglecatsanddogs_3367a.zip
-    #
-    # # Caltech birds
-    # !wget
-    # https: // storage.googleapis.com / mlep -  public / course_1 / week2 / CUB_200_2011.tar
-    #
-    # # Download pretrained models and training histories
-    # !wget - q - P / content / model - balanced / https: // storage.googleapis.com / mlep - public / course_1 / week2 / model - balanced / saved_model.pb
-    # !wget - q - P / content / model - balanced / variables / https: // storage.googleapis.com / mlep - public / course_1 / week2 / model - balanced / variables / variables.data - 00000 - of - 00001
-    # !wget - q - P / content / model - balanced / variables / https: // storage.googleapis.com / mlep - public / course_1 / week2 / model - balanced / variables / variables.index
-    # !wget - q - P / content / history - balanced / https: // storage.googleapis.com / mlep - public / course_1 / week2 / history - balanced / history - balanced.csv
-    #
-    # !wget - q - P / content / model - imbalanced / https: // storage.googleapis.com / mlep - public / course_1 / week2 / model - imbalanced / saved_model.pb
-    # !wget - q - P / content / model - imbalanced / variables / https: // storage.googleapis.com / mlep - public / course_1 / week2 / model - imbalanced / variables / variables.data - 00000 - of - 00001
-    # !wget - q - P / content / model - imbalanced / variables / https: // storage.googleapis.com / mlep - public / course_1 / week2 / model - imbalanced / variables / variables.index
-    # !wget - q - P / content / history - imbalanced / https: // storage.googleapis.com / mlep - public / course_1 / week2 / history - imbalanced / history - imbalanced.csv
-    #
-    # !wget - q - P / content / model - augmented / https: // storage.googleapis.com / mlep - public / course_1 / week2 / model - augmented / saved_model.pb
-    # !wget - q - P / content / model - augmented / variables / https: // storage.googleapis.com / mlep - public / course_1 / week2 / model - augmented / variables / variables.data - 00000 - of - 00001
-    # !wget - q - P / content / model - augmented / variables / https: // storage.googleapis.com / mlep - public / course_1 / week2 / model - augmented / variables / variables.index
-    # !wget - q - P / content / history - augmented / https: // storage.googleapis.com / mlep - public / course_1 / week2 / history - augmented / history - augmented.csv
 
-    print("hi")
+def download_artifacts():
+    # Download datasets
+    subprocess.call(['sh', './artifacts.sh'])
+
 
 if __name__ == "__main__":
-    downloadArtifacts()
+    if not os.path.isdir("./content"):
+        download_artifacts()
+
+    cats_and_dogs_zip = '/content/kagglecatsanddogs_3367a.zip'
+    caltech_birds_tar = '/content/CUB_200_2011.tar'
+
+    base_dir = '/content/raw_data'
+
+    with zipfile.ZipFile(cats_and_dogs_zip, 'r') as my_zip:
+        my_zip.extractall(base_dir)
+
+    with tarfile.TarFile(caltech_birds_tar, 'r') as my_tar:
+        my_tar.extractall(base_dir)

@@ -68,12 +68,25 @@ if __name__ == "__main__":
         if not os.path.exists(os.path.join(base_dir, directory)):
             os.makedirs(os.path.join(base_dir, directory))
 
-    # Move 70% of the images to the train dir
-    move_to_destination(base_cats_dir, os.path.join(base_dir, 'train/cats'), 0.7)
-    move_to_destination(base_dogs_dir, os.path.join(base_dir, 'train/dogs'), 0.7)
-    move_to_destination(base_birds_dir, os.path.join(base_dir, 'train/birds'), 0.7)
+    if os.listdir(os.path.join(base_dir, 'train/cats')) == 0:
+        # Move 70% of the images to the train dir
+        move_to_destination(base_cats_dir, os.path.join(base_dir, 'train/cats'), 0.7)
+        move_to_destination(base_dogs_dir, os.path.join(base_dir, 'train/dogs'), 0.7)
+        move_to_destination(base_birds_dir, os.path.join(base_dir, 'train/birds'), 0.7)
 
-    # Move the remaining images to the eval dir
-    move_to_destination(base_cats_dir, os.path.join(base_dir, 'eval/cats'), 1)
-    move_to_destination(base_dogs_dir, os.path.join(base_dir, 'eval/dogs'), 1)
-    move_to_destination(base_birds_dir, os.path.join(base_dir, 'eval/birds'), 1)
+        # Move the remaining images to the eval dir
+        move_to_destination(base_cats_dir, os.path.join(base_dir, 'eval/cats'), 1)
+        move_to_destination(base_dogs_dir, os.path.join(base_dir, 'eval/dogs'), 1)
+        move_to_destination(base_birds_dir, os.path.join(base_dir, 'eval/birds'), 1)
+
+    # cleaning data
+    subprocess.call(['sh', './cleaningData.sh'])
+
+    print(f"There are {len(os.listdir(os.path.join(base_dir, 'train/cats')))} images of cats for training")
+    print(f"There are {len(os.listdir(os.path.join(base_dir, 'train/dogs')))} images of dogs for training")
+    print(f"There are {len(os.listdir(os.path.join(base_dir, 'train/birds')))} images of birds for training\n")
+
+    print(f"There are {len(os.listdir(os.path.join(base_dir, 'eval/cats')))} images of cats for evaluation")
+    print(f"There are {len(os.listdir(os.path.join(base_dir, 'eval/dogs')))} images of dogs for evaluation")
+    print(f"There are {len(os.listdir(os.path.join(base_dir, 'eval/birds')))} images of birds for evaluation")
+

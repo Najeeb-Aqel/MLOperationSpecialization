@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import subprocess
 
+from model import train_imbalanced_model
+
 # To ignore some warnings about Image metadata that Pillow prints out
 import warnings
 warnings.filterwarnings("ignore")
@@ -33,6 +35,13 @@ def create_imbalanced_dataset(train_eval_dirs, base_dir):
     for directory in train_eval_dirs:
         if not os.path.exists(os.path.join(base_dir, 'imbalanced/' + directory)):
             os.makedirs(os.path.join(base_dir, 'imbalanced/' + directory))
+
+
+def copy_with_limit(origin, destination, percentage_split):
+    num_images = int(len(os.listdir(origin)) * percentage_split)
+    for image_name, image_number in zip(sorted(os.listdir(origin)), range(num_images)):
+        shutil.copy(os.path.join(origin, image_name), destination)
+
 
 if __name__ == "__main__":
     if not os.path.isdir("./content"):
@@ -98,22 +107,15 @@ if __name__ == "__main__":
 
     create_imbalanced_dataset(train_eval_dirs, base_dir)
 
+    if os.listdir(os.path.join(base_dir, 'imbalanced/train/cats')) == 0:
+        # Perform the copying
+        copy_with_limit(os.path.join(base_dir, 'train/cats'), os.path.join(base_dir, 'imbalanced/train/cats'), 1)
+        copy_with_limit(os.path.join(base_dir, 'train/dogs'), os.path.join(base_dir, 'imbalanced/train/dogs'), 0.2)
+        copy_with_limit(os.path.join(base_dir, 'train/birds'), os.path.join(base_dir, 'imbalanced/train/birds'), 0.1)
 
-    # Very similar to the one used before but this one copies instead of moving
-    def copy_with_limit(origin, destination, percentage_split):
-        num_images = int(len(os.listdir(origin)) * percentage_split)
-        for image_name, image_number in zip(sorted(os.listdir(origin)), range(num_images)):
-            shutil.copy(os.path.join(origin, image_name), destination)
-
-
-    # Perform the copying
-    copy_with_limit(os.path.join(base_dir, 'train/cats'), os.path.join(base_dir, 'imbalanced/train/cats'), 1)
-    copy_with_limit(os.path.join(base_dir, 'train/dogs'), os.path.join(base_dir, 'imbalanced/train/dogs'), 0.2)
-    copy_with_limit(os.path.join(base_dir, 'train/birds'), os.path.join(base_dir, 'imbalanced/train/birds'), 0.1)
-
-    copy_with_limit(os.path.join(base_dir, 'eval/cats'), os.path.join(base_dir, 'imbalanced/eval/cats'), 1)
-    copy_with_limit(os.path.join(base_dir, 'eval/dogs'), os.path.join(base_dir, 'imbalanced/eval/dogs'), 0.2)
-    copy_with_limit(os.path.join(base_dir, 'eval/birds'), os.path.join(base_dir, 'imbalanced/eval/birds'), 0.1)
+        copy_with_limit(os.path.join(base_dir, 'eval/cats'), os.path.join(base_dir, 'imbalanced/eval/cats'), 1)
+        copy_with_limit(os.path.join(base_dir, 'eval/dogs'), os.path.join(base_dir, 'imbalanced/eval/dogs'), 0.2)
+        copy_with_limit(os.path.join(base_dir, 'eval/birds'), os.path.join(base_dir, 'imbalanced/eval/birds'), 0.1)
 
     # Print number of available images
     print(f"There are {len(os.listdir(os.path.join(base_dir, 'imbalanced/train/cats')))} images of cats for training")
@@ -123,3 +125,5 @@ if __name__ == "__main__":
     print(f"There are {len(os.listdir(os.path.join(base_dir, 'imbalanced/eval/cats')))} images of cats for evaluation")
     print(f"There are {len(os.listdir(os.path.join(base_dir, 'imbalanced/eval/dogs')))} images of dogs for evaluation")
     print(f"There are {len(os.listdir(os.path.join(base_dir, 'imbalanced/eval/birds')))} images of birds for evaluation")
+
+    train_imbalanced_model()

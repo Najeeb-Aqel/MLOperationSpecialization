@@ -1,5 +1,6 @@
 import tensorflow as tf
 from tensorflow.keras import layers, models, optimizers
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 def create_model():
     model = models.Sequential([
@@ -25,3 +26,34 @@ def create_model():
     )
 
     return model
+
+
+def train_imbalanced_model():
+    model = create_model()
+    print(model.summary())
+
+    # No data augmentation for now, only normalizing pixel values
+    train_datagen = ImageDataGenerator(rescale=1. / 255)
+    test_datagen = ImageDataGenerator(rescale=1. / 255)
+
+    # Point to the imbalanced directory
+    train_generator = train_datagen.flow_from_directory(
+        './content/raw_data/imbalanced/train',
+        target_size=(150, 150),
+        batch_size=32,
+        class_mode='binary')
+
+    validation_generator = test_datagen.flow_from_directory(
+        './content/raw_data/imbalanced/eval',
+        target_size=(150, 150),
+        batch_size=32,
+        class_mode='binary')
+
+    imbalanced_history = model.fit(
+        train_generator,
+        steps_per_epoch=100,
+        epochs=50,
+        validation_data=validation_generator,
+        validation_steps=80)
+        # workers=8,
+        # use_multiprocessing=True)

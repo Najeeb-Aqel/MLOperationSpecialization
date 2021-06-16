@@ -1,4 +1,8 @@
 import tensorflow as tf
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 from tensorflow.keras import layers, models, optimizers
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
@@ -57,3 +61,40 @@ def train_imbalanced_model():
         validation_steps=80)
         # workers=8,
         # use_multiprocessing=True)
+
+
+def get_training_metrics(history):
+    # This is needed depending on if you used the pretrained model or you trained it yourself
+    if not isinstance(history, pd.core.frame.DataFrame):
+        history = history.history
+
+    acc = history['sparse_categorical_accuracy']
+    val_acc = history['val_sparse_categorical_accuracy']
+
+    loss = history['loss']
+    val_loss = history['val_loss']
+
+    return acc, val_acc, loss, val_loss
+
+def plot_train_eval(history):
+  acc, val_acc, loss, val_loss = get_training_metrics(history)
+
+  acc_plot = pd.DataFrame({"training accuracy":acc, "evaluation accuracy":val_acc})
+  acc_plot = sns.lineplot(data=acc_plot)
+  acc_plot.set_title('training vs evaluation accuracy')
+  acc_plot.set_xlabel('epoch')
+  acc_plot.set_ylabel('sparse_categorical_accuracy')
+  plt.show()
+
+  print("")
+
+  loss_plot = pd.DataFrame({"training loss":loss, "evaluation loss":val_loss})
+  loss_plot = sns.lineplot(data=loss_plot)
+  loss_plot.set_title('training vs evaluation loss')
+  loss_plot.set_xlabel('epoch')
+  loss_plot.set_ylabel('loss')
+  plt.show()
+
+
+
+plot_train_eval(imbalanced_history)

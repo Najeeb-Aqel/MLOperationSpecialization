@@ -1,0 +1,6 @@
+-----------------------------------Introduction to Machine Learning in Production-------------------------------------------------------
+
+Overview: 
+    -MLP: automating training and monitoring (Basically a software architecture)
+    -TFX: Tensorflow Extended, End to end platform for deploying production ML pop
+

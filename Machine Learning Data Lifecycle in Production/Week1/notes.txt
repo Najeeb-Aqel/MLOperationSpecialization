@@ -1,0 +1,15 @@
+-----------------------------------Introduction to Machine Learning in Production-------------------------------------------------------
+
+Overview: 
+    -MLP: automating training and monitoring (Basically a software architecture)
+    -TFX: Tensorflow Extended, End to end platform for deploying production ML pop
+
+
+-----------------------------------Collecting Data -------------------------------------------------------------------------------------
+
+
+- Data is the hardest part of ML and the most improtant piece to get right. 
+- Meaninggul Data: 
+    - maximize predictive content. 
+    - remove non-informative data. 
+    - feature space coverage. 

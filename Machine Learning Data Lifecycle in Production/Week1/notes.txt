@@ -13,3 +13,35 @@ Overview:
     - maximize predictive content. 
     - remove non-informative data. 
     - feature space coverage. 
+
+
+----------------------------------Responsible Data -------------------------------------------------------------------------------------
+
+
+- Responsible Data Collection and labeling. 
+- How ML System can fail users
+    - Representational harm.
+    - Opportunity denial. 
+    - Disproportuinate product failure. 
+    - Harm by disadvantage. 
+- Commit farirness: 
+    - ML models can amplify biases.
+
+- Types of human raters: 
+    - Generalists: crowdsourcing tools. 
+    - Subject matter experts. 
+
+
+
+
+
+-------------------------------Labeling Data --------------------------------------------------------------------------------------------
+
+- Degraded Model Performance: 
+    - Problems: 
+        - slow: data drift. 
+            - Data Drift. 
+            - Concept Drift.
+        - fast: Bad software, Bad Hardware. 
+            - Data Collection Problems. 
+            

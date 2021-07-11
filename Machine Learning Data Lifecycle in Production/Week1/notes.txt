@@ -45,3 +45,31 @@ Overview:
         - fast: Bad software, Bad Hardware. 
             - Data Collection Problems. 
             
+
+- Data and Concept change: 
+    - Changing ground truth. 
+
+    - Model training driven by: 
+        - Model improvments better data. 
+        - changes in software and better tools. 
+
+
+Data Labeling Types: 
+    - Process Feedback (Direct Labeling)
+    - Human Labeling 
+    - Semi Supervised Labeling
+    - Active Learning
+    - Weak Supervision
+
+Human Labeling disadvantages: 
+    - Slow
+    - Expensive 
+    - Quality Consistency. 
+    - small dataset curation. 
+
+
+
+-----------------------Validating Data --------------------------------------------------------------------------------------------------------
+
+- Detectin Data Isssues: 
+    - 

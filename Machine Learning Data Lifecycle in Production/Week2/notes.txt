@@ -1,0 +1,22 @@
+-----------------------------------Feature Engineering-------------------------------------------------------
+
+- Introduction to Preprocessing: 
+    - the ar of feature Engineering is to improve model's ability to learn and reduce if possibel the compute resouces it needs. 
+
+- Preprocessing Operations: 
+    - Data Cleansing. 
+    - Feature Tuning.
+    - Represenation and Transformation.
+    - Feature Extraction. 
+    - Feature Construction. 
+
+- Feature Engineering Techniques: 
+    - Numberical Range: Scaling, noramlization, standardizing. 
+        - Scaling: helps neural network converge faster, for each feature the model learns the right weight, does away with NaN errorsduring training.
+        - noramlization: X - Xmin / (Xmax - Xmin), not good with Gaussian/normal data. 
+        - standardizing: X - mean / Standard deviation. 
+    - Grouping: Bag of words, Bucketizing.
+
+- Feature Crosses: 
+    - Basically combining multiple features in a new feature.
+    

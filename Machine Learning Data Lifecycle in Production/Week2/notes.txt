@@ -20,3 +20,11 @@
 - Feature Crosses: 
     - Basically combining multiple features in a new feature.
     
+
+-----------------------------------Feature Transformation at scale-------------------------------------------------------
+
+- Preprocessing Data at Scale:
+    - Consisting Transofrms on both serving and training. 
+    - One of the challenges is when Serving and training code paths are different Taining in Python and serving in C++ for example:
+        - this can Introduce skews and thus reduce model performance.
+    - Prefetching transformations:accelareate data Preprocessing and thus make use fo your accelerator hardware. 

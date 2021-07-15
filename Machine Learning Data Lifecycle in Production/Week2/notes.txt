@@ -28,3 +28,27 @@
     - One of the challenges is when Serving and training code paths are different Taining in Python and serving in C++ for example:
         - this can Introduce skews and thus reduce model performance.
     - Prefetching transformations:accelareate data Preprocessing and thus make use fo your accelerator hardware. 
+
+
+-----------------------------------Feature Selection --------------------------------------------------------------------
+
+- Feature Spaces: 
+    - N dimentionsal space defined by your N features.
+    - Not Including the Target label. 
+
+- Feature Selection: 
+    - Identify the features that best represent the realtionship between x-Y.
+    - Remove features that don't influence the outcome. 
+    - Reduce the size of the feature space. 
+    
+    Why:
+        - Reduces storage and I/O requirements. 
+        - Minimize training and inference costs.
+
+
+    Filtered Methods: 
+        - Correlation: 
+            - correlated features are usually redundant. 
+                - Pearson Correlation: 
+        - Univariate Feature Selection: 
+    

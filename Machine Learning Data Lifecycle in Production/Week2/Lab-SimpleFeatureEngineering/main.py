@@ -65,6 +65,25 @@ def main():
     # preview the schema
     print(raw_data_metadata._schema)
 
+    # Ignore the warnings
+    tf.get_logger().setLevel('ERROR')
+
+    # a temporary directory is needed when analyzing the data
+    with tft_beam.Context(temp_dir=tempfile.mkdtemp()):
+        # define the pipeline using Apache Beam syntax
+        transformed_dataset, transform_fn = (
+
+            # analyze and transform the dataset using the preprocessing function
+            (dummy_dataset, raw_data_metadata) | tft_beam.AnalyzeAndTransformDataset(preprocessing_fn)
+        )
+
+    # unpack the transformed dataset
+    transformed_data, transformed_metadata = transformed_dataset
+
+    # print the results
+    print('\nRaw data:\n{}\n'.format(pprint.pformat(dummy_dataset)))
+    print('Transformed data:\n{}'.format(pprint.pformat(transformed_data)))
+
 
 
 

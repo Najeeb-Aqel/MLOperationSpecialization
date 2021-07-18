@@ -35,9 +35,37 @@ def define_dataset_metadata():
     return raw_data_metadata
 
 
+def preprocessing_fn(inputs):
+    """Preprocess input columns into transformed columns."""
+
+    # extract the columns and assign to local variables
+    x = inputs['x']
+    y = inputs['y']
+    s = inputs['s']
+
+    # data transformations using tft functions
+    x_centered = x - tft.mean(x)
+    y_normalized = tft.scale_to_0_1(y)
+    s_integerized = tft.compute_and_apply_vocabulary(s)
+    x_centered_times_y_normalized = (x_centered * y_normalized)
+
+    # return the transformed data
+    return {
+        'x_centered': x_centered,
+        'y_normalized': y_normalized,
+        's_integerized': s_integerized,
+        'x_centered_times_y_normalized': x_centered_times_y_normalized,
+    }
+
+
 def main():
     dummy_dataset = define_dummy_dataset()
     raw_data_metadata = define_dataset_metadata()
+
+    # preview the schema
+    print(raw_data_metadata._schema)
+
+
 
 
 if __name__ == "__main__":

@@ -8,8 +8,20 @@ from tensorflow_transform.tf_metadata import schema_utils
 import pprint
 import tempfile
 
-def main():
 
+def define_dummy_dataset():
+    # define sample data
+    raw_data = [
+        {'x': 1, 'y': 1, 's': 'hello'},
+        {'x': 2, 'y': 2, 's': 'world'},
+        {'x': 3, 'y': 3, 's': 'hello'}
+    ]
+
+    return raw_data
+
+
+def main():
+    dummy_dataset = define_dummy_dataset()
 
 
 if __name__ == "__main__":

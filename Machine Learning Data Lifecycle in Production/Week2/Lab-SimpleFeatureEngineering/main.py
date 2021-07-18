@@ -20,8 +20,24 @@ def define_dummy_dataset():
     return raw_data
 
 
+def define_dataset_metadata():
+    # define the schema as a DatasetMetadata object
+    raw_data_metadata = dataset_metadata.DatasetMetadata(
+
+        # use convenience function to build a Schema protobuf
+        schema_utils.schema_from_feature_spec({
+
+            # define a dictionary mapping the keys to its feature spec type
+            'y': tf.io.FixedLenFeature([], tf.float32),
+            'x': tf.io.FixedLenFeature([], tf.float32),
+            's': tf.io.FixedLenFeature([], tf.string),
+        }))
+    return raw_data_metadata
+
+
 def main():
     dummy_dataset = define_dummy_dataset()
+    raw_data_metadata = define_dataset_metadata()
 
 
 if __name__ == "__main__":
